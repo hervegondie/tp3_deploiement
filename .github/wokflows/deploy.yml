@@ -1,4 +1,4 @@
-name: CI/CD
+name: FTP Deploy
 
 	on:
 	  push:
