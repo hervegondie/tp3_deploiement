@@ -18,7 +18,7 @@ jobs:
         with:
            token: ${{ secrets.DEPLOY_SECRETS }}
            projectToken: ${{ secrets.CHROMATIC_TOKEN  }}
-      - run: npm i
+      - run: npm ci
       - run: npm run build
       - run: npm test
       - run: npm run chromatic
