@@ -17,7 +17,7 @@ jobs:
         uses: chromaui/action@v1
         with:
            token: ${{ secrets.DEPLOY_SECRETS }}
-           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+           projectToken: ${{ secrets.CHROMATIC_TOKEN  }}
       - run: npm i
       - run: npm run build
       - run: npm test
