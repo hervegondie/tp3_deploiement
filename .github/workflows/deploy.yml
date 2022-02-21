@@ -19,6 +19,8 @@ jobs:
         server: ftp.hgondie.devwebgarneau.com
         username: hgondie
         password: ${{ secrets.ftp_password }}
+        protocol: ftps
+        port: 21
         
   chromatic-deployment:
     runs-on: ubuntu-latest
