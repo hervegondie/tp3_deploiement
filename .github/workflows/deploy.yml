@@ -7,6 +7,21 @@ on:
     branches: [master]
       
 jobs:
+
+  ftpdeploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v2
+    
+    - name: Sync files
+      uses: hgondie.devwebgarneau/FTP-Deploy-Action@4.3.0
+      with:
+        server: ftp.hgondie.devwebgarneau.com
+        username: hgondie
+        password: ${{ secrets.ftp_password }}
+        
   chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
@@ -22,3 +37,4 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm run chromatic
+
