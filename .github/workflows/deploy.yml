@@ -9,14 +9,12 @@ on:
 jobs:
 
   ftpdeploy:
-    name: Deploy
+    name: Deploy-ftp
     runs-on: ubuntu-latest
     steps:
-    - name: Get latest code
-      uses: actions/checkout@v2
+  
+    - uses: actions/checkout@v2
     
-    - name: Sync files
-      uses: hgondie.devwebgarneau/FTP-Deploy-Action@4.3.0
       with:
         server: ftp.hgondie.devwebgarneau.com
         username: hgondie
