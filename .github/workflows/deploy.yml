@@ -7,15 +7,17 @@ on:
     branches: [master]
       
 jobs:
-  deploy:
+  chromatic-deployment:
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Install dependencies
+        run: yarn
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
         with:
-          node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
+           token: ${{ secrets.DEPLOY_SECRETS }}
+           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       - run: npm i
       - run: npm run build
       - run: npm test
